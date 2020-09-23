@@ -76,9 +76,8 @@ definition {
 	}
 
 	test ProductPublishing {
-		property environment.acceptance = "quarantine";
-		property portal.acceptance = "quarantine";
-		property test.name.skip.portal.instance = "CPCommerceProducts#ProductPublishing";
+		property environment.acceptance = "true";
+		property portal.acceptance = "true";
 
 		CommerceNavigator.gotoPortlet(
 			category = "Product Management",
@@ -128,10 +127,7 @@ definition {
 			specificationDescription = "SpecificationGroups",
 			specificationTitle = "SpecificationGroups");
 
-		CommerceNavigator.gotoPortlet(
-			category = "Product Management",
-			panel = "Commerce",
-			portlet = "Specifications");
+		CommerceNavigator.gotoCommercePortletNavItem(navItem = "Specification Labels");
 
 		CommerceEntry.createNewSpecificationLabels(
 			specificationDescription = "SpecificationLabel",
@@ -148,8 +144,6 @@ definition {
 		CommerceRelations.assignSingleRelationToProductsEntry(
 			entryName = "SpecificationLabel",
 			title = "Specifications");
-
-		Refresh();
 
 		CommerceEntry.gotoMenuTab(menuTab = "Options");
 

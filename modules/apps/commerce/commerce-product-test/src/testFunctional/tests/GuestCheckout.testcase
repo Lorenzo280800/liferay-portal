@@ -931,7 +931,7 @@ definition {
 	}
 
 	test GuestCheckoutEnabled {
-		property portal.acceptance = "quarantine";
+		property portal.acceptance = "true";
 		property test.name.skip.portal.instance = "GuestCheckout#GuestCheckoutEnabled";
 
 		CommerceAccelerators.initializeAccelerator(siteName = "Speedwell");
@@ -973,6 +973,8 @@ definition {
 			productName = "U-Joint",
 			productQuantity = "1");
 
+		Pause(locator1 = "5000");
+
 		CommerceNavigator.gotoMiniCart();
 
 		Button.click(button = "Submit");
@@ -991,6 +993,10 @@ definition {
 			productQuantity = "1",
 			productUnitPrice = "24",
 			shippingMethod = "Standard");
+
+		AssertTextEquals(
+			locator1 = "CommerceAccelerators#CHECKOUT_SUCCESS_MESSAGE",
+			value1 = "Your order has been processed but not completed yet.");
 	}
 
 	test GuestCheckoutWithNoShippableProduct {

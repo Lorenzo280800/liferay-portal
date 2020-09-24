@@ -411,7 +411,7 @@ definition {
 	}
 
 	test AssertGuestCheckoutAuthenticationPage {
-		property portal.acceptance = "quarantine";
+		property portal.acceptance = "true";
 		property test.name.skip.portal.instance = "GuestCheckout#AssertGuestCheckoutAuthenticationPage";
 
 		CommerceAccelerators.initializeAccelerator(siteName = "Speedwell");

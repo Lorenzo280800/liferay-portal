@@ -63,6 +63,7 @@ definition {
 	test ViewStoreFrontSimpleProduct {
 		property environment.acceptance = "true";
 		property portal.acceptance = "true";
+		property test.name.skip.portal.instance = "CommerceFrontStore#ViewStoreFrontSimpleProduct";
 
 		echo("Creating new Option complete with Values...");
 

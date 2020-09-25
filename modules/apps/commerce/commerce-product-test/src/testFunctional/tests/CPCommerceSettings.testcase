@@ -18,6 +18,8 @@ definition {
 		}
 		else {
 			Navigator.openURL();
+
+			CommerceConfiguration.commerceAdminTearDown();
 		}
 	}
 

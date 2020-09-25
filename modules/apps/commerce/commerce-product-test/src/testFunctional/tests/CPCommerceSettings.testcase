@@ -52,7 +52,11 @@ definition {
 
 		Click(locator1 = "Button#PLUS");
 
-		CommerceEntry.addNewCountriesEntry(entryName = "New Country");
+		CommerceEntry.addNewCountriesEntry(
+			entryName = "Test Country",
+			entryIsoTwoLetters = "TC",
+			entryIsoThreeLetters = "TCO",
+			entryIsoNumber = "020");
 
 		Button.clickSave();
 
@@ -63,8 +67,8 @@ definition {
 		Click(locator1 = "Button#PLUS");
 
 		CommerceEntry.addNewRegionsEntry(
-			code = "NRE",
-			entryName = "New Region");
+			code = "TRE",
+			entryName = "Test Region");
 
 		Button.clickSave();
 

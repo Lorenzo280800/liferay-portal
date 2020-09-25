@@ -76,7 +76,7 @@ definition {
 	}
 
 	test CreateNewMeasurementUnits {
-		property portal.acceptance = "quarantine";
+		property portal.acceptance = "true";
 		property test.name.skip.portal.instance = "CPCommerceSettings#CreateNewMeasurementUnits";
 
 		CommerceNavigator.gotoPortlet(

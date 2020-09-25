@@ -175,7 +175,7 @@ definition {
 			portlet = "Countries");
 
 		if (IsElementNotPresent(locator1 = "CommerceNavigation#EMPTY_SEARCH_CONTAINER")) {
-			if(IsElementPresent(locator1 = "Pagination#ITEMS_PER_PAGE_SELECT")){
+			if (IsElementPresent(locator1 = "Pagination#ITEMS_PER_PAGE_SELECT")) {
 				Pagination.changePagination(itemsPerPage = "60");
 			}
 

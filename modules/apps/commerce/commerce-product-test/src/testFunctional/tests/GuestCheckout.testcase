@@ -230,8 +230,8 @@ definition {
 			cartItemPriceValues = "24,",
 			cartItemQuantities = "1,",
 			cartItemSKUs = "SPEED55861,",
-			cartSummaryQuantity = "${cartItemQuantity}",
-			cartSummarySubtotal = "${cartItemPriceValue}",
+			cartSummaryQuantity = "1",
+			cartSummarySubtotal = "24",
 			cartSummaryTotal = "${cartSummarySubtotal}");
 
 		Click(locator1 = "CommerceAccelerators#MINI_CART_CLOSE");
@@ -255,7 +255,7 @@ definition {
 			cartItemPriceValues = "24,",
 			cartItemQuantities = "5,",
 			cartItemSKUs = "SPEED55861,",
-			cartSummaryQuantity = "${cartItemQuantity}",
+			cartSummaryQuantity = "5",
 			cartSummarySubtotal = "120",
 			cartSummaryTotal = "${cartSummarySubtotal}");
 
@@ -275,8 +275,8 @@ definition {
 			cartItemPriceValues = "24,",
 			cartItemQuantities = "1,",
 			cartItemSKUs = "SPEED55861,",
-			cartSummaryQuantity = "${cartItemQuantity}",
-			cartSummarySubtotal = "${cartItemPriceValue}",
+			cartSummaryQuantity = "1",
+			cartSummarySubtotal = "24",
 			cartSummaryTotal = "${cartSummarySubtotal}");
 	}
 
@@ -360,8 +360,8 @@ definition {
 			cartItemPriceValues = "24,",
 			cartItemQuantities = "1,",
 			cartItemSKUs = "SPEED55861,",
-			cartSummaryQuantity = "${cartItemQuantity}",
-			cartSummarySubtotal = "${cartItemPriceValue}",
+			cartSummaryQuantity = "1",
+			cartSummarySubtotal = "24",
 			cartSummaryTotal = "${cartSummarySubtotal}");
 
 		Click(locator1 = "CommerceAccelerators#MINI_CART_CLOSE");
@@ -385,7 +385,7 @@ definition {
 			cartItemPriceValues = "15,",
 			cartItemQuantities = "5,",
 			cartItemSKUs = "SPEED55860,",
-			cartSummaryQuantity = "${cartItemQuantity}",
+			cartSummaryQuantity = "5",
 			cartSummarySubtotal = "75",
 			cartSummaryTotal = "${cartSummarySubtotal}");
 

@@ -46,17 +46,14 @@ definition {
 		if (isSet(addressAddress) && isSet(addressCity) && isSet(addressZipCode)) {
 
 			AssertTextEquals.assertPartialText(
-				key_addressInfo = "${addressAddress}",
 				locator1 = "CommerceOrders#ORDER_DETAILS_BILLING_ADDRESS",
 				value1 = "${addressAddress}");
 
 			AssertTextEquals.assertPartialText(
-				key_addressInfo = "${addressCity}",
 				locator1 = "CommerceOrders#ORDER_DETAILS_BILLING_ADDRESS",
 				value1 = "${addressCity}");
 
 			AssertTextEquals.assertPartialText(
-				key_addressInfo = "${addressZipCode}",
 				locator1 = "CommerceOrders#ORDER_DETAILS_BILLING_ADDRESS",
 				value1 = "${addressZipCode}");
 
@@ -77,34 +74,29 @@ definition {
 		}
 
 		AssertTextEquals(
-			key_paymentMethod = "${productSKU}",
-			locator1 = "CommerceOrders#ORDER_DETAILS_PRODUCT_SKU",
+			key_entryName = "${productSKU}",
+			locator1 = "CommerceNavigation#ENTRY_NAME",
 			value1 = "${productSKU}");
 
 		AssertTextEquals(
-			key_paymentMethod = "${productName}",
 			locator1 = "CommerceOrders#ORDER_DETAILS_PRODUCT_NAME",
 			value1 = "${productName}");
 
 		AssertTextEquals(
-			key_paymentMethod = "${productUnitPrice}",
 			locator1 = "CommerceOrders#ORDER_DETAILS_PRODUCT_UNIT_PRICE",
 			value1 = "$ ${productUnitPrice}");
 
 		if (isSet(productDiscount)) {
 			AssertTextEquals(
-				key_paymentMethod = "${productDiscount}",
 				locator1 = "CommerceOrders#ORDER_DETAILS_PRODUCT_DISCOUNT",
 				value1 = "$ ${productDiscount}");
 		}
 
 		AssertTextEquals(
-			key_paymentMethod = "${productQuantity}",
 			locator1 = "CommerceOrders#ORDER_DETAILS_PRODUCT_QUANTITY",
 			value1 = "${productQuantity}");
 
 		AssertTextEquals(
-			key_paymentMethod = "${productPrice}",
 			locator1 = "CommerceOrders#ORDER_DETAILS_PRODUCT_PRICE",
 			value1 = "$ ${productPrice}");
 
@@ -114,7 +106,6 @@ definition {
 				locator1 = "CommerceEntry#MENU_TAB");
 
 			AssertTextEquals.assertPartialText(
-				key_paymentMethod = "${paymentMethod}",
 				locator1 = "CommerceOrders#ORDER_DETAILS_PAYMENT_METHOD_NAME",
 				value1 = "${paymentMethod}");
 		}

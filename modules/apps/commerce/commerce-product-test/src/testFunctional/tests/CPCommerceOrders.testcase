@@ -35,7 +35,6 @@ definition {
 	}
 
 	test EditOrder {
-		property portal.acceptance = "quarantine";
 		property test.name.skip.portal.instance = "CPCommerceOrders#EditOrder";
 
 		CommerceAccelerators.initializeAccelerator(siteName = "Minium");

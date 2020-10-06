@@ -113,8 +113,7 @@ definition {
 	}
 
 	test InitializeNewMiniumSite {
-		property environment.acceptance = "quarantine";
-		property portal.acceptance = "quarantine";
+		property portal.acceptance = "true";
 		property test.name.skip.portal.instance = "CommerceAccelerators#InitializeNewMiniumSite";
 
 		CommerceAccelerators.initializeAccelerator(siteName = "Minium");

@@ -149,7 +149,7 @@ definition {
 			panel = "Commerce",
 			portlet = "Products");
 
-		CommerceEntry.viewPaginationResults(results = "Showing 1 to 10 of 50 entries.");
+		CommerceEntry.viewPaginationResults(results = "Showing 1 to 10 of 50");
 
 		CommerceNavigator.gotoPortlet(
 			category = "Product Management",

@@ -171,8 +171,7 @@ definition {
 	}
 
 	test InitializeNewSpeedwellSite {
-		property environment.acceptance = "quarantine";
-		property portal.acceptance = "quarantine";
+		property portal.acceptance = "true";
 		property test.name.skip.portal.instance = "CommerceAccelerators#InitializeNewSpeedwellSite";
 
 		CommerceAccelerators.initializeAccelerator(siteName = "Speedwell");

@@ -496,11 +496,13 @@ definition {
 			panel = "Commerce",
 			portlet = "Orders");
 
-		CommerceNavigator.gotoCommercePortletNavItem(navItem = "Open");
+		CommerceEntry.addNewFilters(
+			filterCategory = "Order Status",
+			filterItem = "Open");
 
 		ClickNoError(locator1 = "CommerceEntry#BODY_VERTICAL_ELLIPSIS");
 
-		CommerceEntry.clickNoError(menuItem = "Edit");
+		CommerceEntry.clickNoError(menuItem = "View");
 
 		CommerceOrders.viewOrdersEntry(
 			productName = "ABS Sensor",
@@ -514,11 +516,13 @@ definition {
 			panel = "Commerce",
 			portlet = "Orders");
 
-		CommerceNavigator.gotoCommercePortletNavItem(navItem = "Pending");
+		CommerceEntry.addNewFilters(
+			filterCategory = "Order Status",
+			filterItem = "Pending");
 
 		ClickNoError(locator1 = "CommerceEntry#BODY_VERTICAL_ELLIPSIS");
 
-		CommerceEntry.clickNoError(menuItem = "Edit");
+		CommerceEntry.clickNoError(menuItem = "View");
 
 		CommerceOrders.viewOrdersEntry(
 			addressAddress = "Test Address",

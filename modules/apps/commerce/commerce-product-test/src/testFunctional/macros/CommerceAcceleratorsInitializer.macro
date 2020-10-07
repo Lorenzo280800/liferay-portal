@@ -85,7 +85,7 @@ definition {
 
 	macro inviteNewMemberWithRoleToAccount {
 		Click(
-			key_text = "Invite User",
+			key_text = "Invite user",
 			locator1 = "Button#ANY");
 
 		Type(

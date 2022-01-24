@@ -272,9 +272,7 @@ function DiagramTable({
 						mappedProducts || [],
 						newQuantities
 					)}
-					disabled={
-						commerceAccount.id < 0 || !selectedProductsCounter
-					}
+					disabled={!commerceAccount?.id || !selectedProductsCounter}
 					hideIcon={true}
 					onAdd={() => {
 						const message =

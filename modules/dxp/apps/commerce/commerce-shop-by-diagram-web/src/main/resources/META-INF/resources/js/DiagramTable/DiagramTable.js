@@ -272,7 +272,9 @@ function DiagramTable({
 						mappedProducts || [],
 						newQuantities
 					)}
-					disabled={!commerceAccount.id || !selectedProductsCounter}
+					disabled={
+						commerceAccount.id < 0 || !selectedProductsCounter
+					}
 					hideIcon={true}
 					onAdd={() => {
 						const message =
@@ -304,11 +306,15 @@ function DiagramTable({
 	);
 }
 
+DiagramTable.defaultProps = {
+	commerceAccountId: -1,
+};
+
 DiagramTable.propTypes = {
 	cartId: PropTypes.string,
 	channelGroupId: PropTypes.string,
 	channelId: PropTypes.string,
-	commerceAccountId: PropTypes.string,
+	commerceAccountId: PropTypes.number,
 	commerceCurrencyCode: PropTypes.string,
 	isAdmin: PropTypes.bool,
 	orderUUID: PropTypes.string,

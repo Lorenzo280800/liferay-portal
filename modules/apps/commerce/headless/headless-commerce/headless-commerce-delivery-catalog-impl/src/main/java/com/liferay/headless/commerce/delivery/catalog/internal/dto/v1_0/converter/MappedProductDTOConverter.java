@@ -513,13 +513,13 @@ public class MappedProductDTOConverter
 					cpInstance.getCPInstanceId()));
 
 		Map<CPDefinitionOptionRel, List<CPDefinitionOptionValueRel>>
-			cpDefinitionOptionValueRelsMap =
-				_cpInstanceHelper.getCPDefinitionOptionValueRelsMap(
+			cpDefinitionOptionRelsMap =
+				_cpInstanceHelper.getCPDefinitionOptionRelsMap(
 					cpInstance.getCPDefinitionId(),
 					keyValuesJSONArray.toString());
 
 		for (Map.Entry<CPDefinitionOptionRel, List<CPDefinitionOptionValueRel>>
-				entry : cpDefinitionOptionValueRelsMap.entrySet()) {
+				entry : cpDefinitionOptionRelsMap.entrySet()) {
 
 			CPDefinitionOptionRel cpDefinitionOptionRel = entry.getKey();
 

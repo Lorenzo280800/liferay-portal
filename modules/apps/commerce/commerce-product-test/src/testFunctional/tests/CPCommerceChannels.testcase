@@ -1693,8 +1693,6 @@ definition {
 
 		CommerceCheckout.gotoCheckout();
 
-		Pause(locator1 = "3000");
-
 		CommerceCheckout.initializersCheckout(
 			newAddressAddress = "Test Address",
 			newAddressCity = "Test City",
@@ -2756,8 +2754,6 @@ definition {
 			productQuantity = "1");
 
 		CommerceCheckout.gotoCheckout();
-
-		Pause(locator1 = "3000");
 
 		CommerceCheckout.initializersCheckout(
 			newAddressAddress = "Test Address",

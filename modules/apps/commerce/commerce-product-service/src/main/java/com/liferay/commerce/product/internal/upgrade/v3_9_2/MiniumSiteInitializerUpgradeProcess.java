@@ -41,59 +41,50 @@ public class MiniumSiteInitializerUpgradeProcess
 	@Override
 	public void doUpgrade() throws Exception {
 		try (PreparedStatement preparedStatement1 = connection.prepareStatement(
-			"select siteGroupId from CommerceChannel where siteGroupId " +
-			"in (select groupId from LayoutSet where privateLayout = ? and " +
-			"themeId = 'minium_WAR_miniumtheme')");
-
-			 PreparedStatement preparedStatement2 =
-				 AutoBatchPreparedStatementUtil.autoBatch(
-					 connection,
-					 "select plid from Layout where groupId = ? " +
-					 "and privateLayout = ? ORDER by " +
-					 "layoutId");
-
-			 PreparedStatement preparedStatement3 =
-				 AutoBatchPreparedStatementUtil.autoBatch(
-					 connection,
-					 "update Layout set layoutId = ?, privateLayout = ? " +
-					 "where groupId = ? and plid = ? and privateLayout = ?");
-
-			 PreparedStatement preparedStatement4 =
-				 AutoBatchPreparedStatementUtil.autoBatch(
-					 connection,
-					 "update LayoutFriendlyURL set privateLayout = ? " +
-					 "where groupId = ? and plid = ? and privateLayout = ?");
-
-			 PreparedStatement preparedStatement5 =
-				 AutoBatchPreparedStatementUtil.autoBatch(
-					 connection,
-					 "select max(layoutId) from Layout where groupId = ? " +
-					 "and privateLayout = ?");
-
-			 PreparedStatement preparedStatement6 =
-				 AutoBatchPreparedStatementUtil.autoBatch(
-					 connection,
-					 "select layoutId, parentLayoutId from Layout where " +
-					 "groupId = ? and layoutId > ? and parentLayoutId > 0");
-
-			 PreparedStatement preparedStatement7 =
-				 AutoBatchPreparedStatementUtil.autoBatch(
-					 connection,
-					 "update Layout set parentLayoutId = ? where " +
-					 "groupId = ? and layoutId = ? and parentLayoutId > 0");
-
-			 PreparedStatement preparedStatement8 =
-				 AutoBatchPreparedStatementUtil.autoBatch(
-					 connection,
-					 "select plid from Layout where friendlyURL != '/login' " +
-					 "and groupId = ? and parentPlid = 0 and type_ = " +
-					 "'portlet' order by priority");
-
-			 PreparedStatement preparedStatement9 =
-				 AutoBatchPreparedStatementUtil.autoBatch(
-					 connection,
-					 "update Layout set priority = ? where groupId = ? and " +
-					 "plid = ?")) {
+				"select siteGroupId from CommerceChannel where siteGroupId " +
+					"in (select groupId from LayoutSet where privateLayout = " +
+						"? and themeId = 'minium_WAR_miniumtheme')");
+			PreparedStatement preparedStatement2 =
+				AutoBatchPreparedStatementUtil.autoBatch(
+					connection,
+					"select plid from Layout where groupId = ? and " +
+						"privateLayout = ? ORDER by layoutId");
+			PreparedStatement preparedStatement3 =
+				AutoBatchPreparedStatementUtil.autoBatch(
+					connection,
+					"update Layout set layoutId = ?, privateLayout = ? where " +
+						"groupId = ? and plid = ? and privateLayout = ?");
+			PreparedStatement preparedStatement4 =
+				AutoBatchPreparedStatementUtil.autoBatch(
+					connection,
+					"update LayoutFriendlyURL set privateLayout = ? where " +
+						"groupId = ? and plid = ? and privateLayout = ?");
+			PreparedStatement preparedStatement5 =
+				AutoBatchPreparedStatementUtil.autoBatch(
+					connection,
+					"select max(layoutId) from Layout where groupId = ? and " +
+						"privateLayout = ?");
+			PreparedStatement preparedStatement6 =
+				AutoBatchPreparedStatementUtil.autoBatch(
+					connection,
+					"select layoutId, parentLayoutId from Layout where " +
+						"groupId = ? and layoutId > ? and parentLayoutId > 0");
+			PreparedStatement preparedStatement7 =
+				AutoBatchPreparedStatementUtil.autoBatch(
+					connection,
+					"update Layout set parentLayoutId = ? where groupId = ? " +
+						"and layoutId = ? and parentLayoutId > 0");
+			PreparedStatement preparedStatement8 =
+				AutoBatchPreparedStatementUtil.autoBatch(
+					connection,
+					"select plid from Layout where friendlyURL != '/login' " +
+						"and groupId = ? and parentPlid = 0 and type_ = " +
+							"'portlet' order by priority");
+			PreparedStatement preparedStatement9 =
+				AutoBatchPreparedStatementUtil.autoBatch(
+					connection,
+					"update Layout set priority = ? where groupId = ? and " +
+						"plid = ?")) {
 
 			preparedStatement1.setBoolean(1, true);
 

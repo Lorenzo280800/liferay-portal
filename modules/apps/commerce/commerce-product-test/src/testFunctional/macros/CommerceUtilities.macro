@@ -8,4 +8,19 @@ definition {
 		WaitForElementNotPresent(locator1 = "Message#SUCCESS");
 	}
 
+	macro convertWholeNumberToDecimal {
+		Variables.assertDefined(parameterList = "${number}");
+
+		var isDecimal = StringUtil.contains("${number}", ".");
+
+		if ("${isDecimal}" == "true") {
+			return "${number}";
+		}
+		else {
+			var decimalNumber = StringUtil.concat("${number}", ".00");
+
+			return "${decimalNumber}";
+		}
+	}
+
 }

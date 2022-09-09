@@ -15,15 +15,7 @@ definition {
 			resourceAction = "VIEW_COMMERCE_ORDERS",
 			resourceName = "com.liferay.commerce.order",
 			roleTitle = "Sales Agent");
-	}
 
-	tearDown {
-		CommerceConfiguration.commerceTearDown();
-	}
-
-	@description = "COMMERCE-9872 | As a Sales Agent, I want to not be able to see accounts that are outside the organization I'm part of"
-	@priority = "4"
-	test CannotViewAccountsOutsideOrganizationAsSalesAgent {
 		task ("Given an organization is created") {
 			JSONOrganization.addOrganization(organizationName = "Test Organization");
 		}
@@ -109,27 +101,6 @@ definition {
 	@description = "COMMERCE-9871 |  As a Sales Agent, I want to be able to see all the accounts and orders that are present in the organization to which the Sales Agent belongs"
 	@priority = "4"
 	test CanViewAccountsAndOrdersAsSalesAgent {
-		task ("Given an organization is created") {
-			JSONOrganization.addOrganization(organizationName = "Test Organization");
-		}
-
-		task ("And a user with the Sales Agent role, Minium site membership and linked to the organization is created") {
-			JSONUser.addUserWithRole(
-				roleTitle = "Sales Agent",
-				userEmailAddress = "sales.agent@liferay.com",
-				userFirstName = "Sales",
-				userLastName = "Agent",
-				userScreenName = "salesagent");
-
-			JSONUser.addUserToSite(
-				groupName = "Minium",
-				userEmailAddress = "sales.agent@liferay.com");
-
-			JSONOrganization.assignUserToOrganization(
-				organizationName = "Test Organization",
-				userEmailAddress = "sales.agent@liferay.com");
-		}
-
 		task ("And 4 accounts are created") {
 			for (var account : list "A,B,C,D") {
 				JSONAccountEntry.addAccountEntry(

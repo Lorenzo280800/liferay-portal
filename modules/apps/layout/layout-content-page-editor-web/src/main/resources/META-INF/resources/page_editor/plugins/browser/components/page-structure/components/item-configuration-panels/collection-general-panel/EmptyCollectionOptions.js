@@ -55,7 +55,7 @@ export function EmptyCollectionOptions({
 
 	return (
 		<>
-			{Liferay.FeatureFlags['LPS-160243'] && (
+			{
 				<div className="align-items-center d-flex mb-2 pt-1">
 					<div>
 						<ClayCheckbox
@@ -70,9 +70,9 @@ export function EmptyCollectionOptions({
 
 					<EmptyCollectionHelp />
 				</div>
-			)}
+			}
 
-			{Liferay.FeatureFlags['LPS-160789'] && displayMessage && (
+			{displayMessage && (
 				<ClayForm.Group small>
 					<label htmlFor={collectionEmptyCollectionMessageId}>
 						{Liferay.Language.get('empty-collection-alert')}

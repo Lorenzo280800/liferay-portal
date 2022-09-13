@@ -72,8 +72,8 @@ export function ReorderSetsModal({onCloseModal}) {
 				{Liferay.Language.get('reorder-sets')}
 			</ClayModal.Header>
 
-			<ClayModal.Body>
-				<p className="text-secondary">
+			<ClayModal.Body className="p-0">
+				<p className="m-0 p-3 text-secondary">
 					{Liferay.Language.get(
 						'fragments-and-widgets-sets-can-be-ordered-to-give-you-easy-access-to-the-ones-you-use-the-most'
 					)}
@@ -187,7 +187,7 @@ function Tabs({updateLists}) {
 
 	return (
 		<>
-			<ClayTabs>
+			<ClayTabs className="px-3">
 				{tabs.map(({id, label}) => (
 					<ClayTabs.Item
 						active={activeTabId === id}
@@ -250,7 +250,7 @@ function Items({items: initialItems, listId, updateLists}) {
 	};
 
 	return (
-		<div className="py-4">
+		<div className="p-4">
 			{items.map((item, index) => (
 				<CardItem
 					index={index}
@@ -278,37 +278,41 @@ function CardItem({index, item, numberOfItems, onChangeItemPosition}) {
 
 	return (
 		<div ref={targetRef}>
-			<ClayCard className={classNames({dragging: isDragging})}>
-				<ClayCard.Body className="px-0">
-					<ClayCard.Row className="align-items-center">
-						<ClayLayout.ContentCol gutters ref={handlerRef}>
-							<ClayIcon
-								className="text-secondary"
-								symbol="drag"
-							/>
-						</ClayLayout.ContentCol>
+			<div ref={handlerRef}>
+				<ClayCard
+					className={classNames('mb-3', {dragging: isDragging})}
+				>
+					<ClayCard.Body className="px-0">
+						<ClayCard.Row className="align-items-center">
+							<ClayLayout.ContentCol gutters>
+								<ClayIcon
+									className="text-secondary"
+									symbol="drag"
+								/>
+							</ClayLayout.ContentCol>
 
-						<ClayLayout.ContentCol expand>
-							<ClayCard.Description
-								className="text-uppercase"
-								displayType="title"
-								title={name}
-							>
-								{name}
-							</ClayCard.Description>
-						</ClayLayout.ContentCol>
+							<ClayLayout.ContentCol expand>
+								<ClayCard.Description
+									className="text-uppercase"
+									displayType="title"
+									title={name}
+								>
+									{name}
+								</ClayCard.Description>
+							</ClayLayout.ContentCol>
 
-						<ClayLayout.ContentCol gutters>
-							<ReorderDropdown
-								index={index}
-								item={item}
-								numberOfItems={numberOfItems}
-								onChangeItemPosition={onChangeItemPosition}
-							/>
-						</ClayLayout.ContentCol>
-					</ClayCard.Row>
-				</ClayCard.Body>
-			</ClayCard>
+							<ClayLayout.ContentCol gutters>
+								<ReorderDropdown
+									index={index}
+									item={item}
+									numberOfItems={numberOfItems}
+									onChangeItemPosition={onChangeItemPosition}
+								/>
+							</ClayLayout.ContentCol>
+						</ClayCard.Row>
+					</ClayCard.Body>
+				</ClayCard>
+			</div>
 		</div>
 	);
 }

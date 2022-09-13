@@ -27,7 +27,7 @@
 
 		<clay:button
 			aria-label='<%= LanguageUtil.get(request, "close") %>'
-			cssClass="sidenav-close text-secondary"
+			cssClass="btn btn-monospaced btn-unstyle component-action sidenav-close text-secondary"
 			displayType="unstyled"
 			icon="times"
 			monospaced="<%= true %>"

@@ -1315,4 +1315,97 @@ definition {
 		}
 	}
 
+	@description = "COMMERCE-8151 | As a buyer, using SBD I want discontinued products to be replaced by the replacement product when adding a discontinued product to an order"
+	@priority = "3"
+	test CanAddReplacementProductToCart {
+		property portal.acceptance = "false";
+
+		task ("Given a diagram product is created") {
+			CommerceJSONProductsAPI._addCommerceProduct(
+				catalogName = "Minium",
+				productName = "Test Diagram Product",
+				productType = "Diagram");
+
+			CommerceProducts.openProductsAdmin();
+
+			CommerceNavigator.searchEntry(entryName = "Diagram T-Shirt");
+
+			CommerceNavigator.gotoEntry(entryName = "Diagram T-Shirt");
+
+			CommerceEntry.gotoMenuTab(menuTab = "Diagram");
+
+			CommerceProductImages.addDiagramImages(
+				imageTitles = "Black",
+				productType = "Diagram");
+
+			Button.clickPublish();
+		}
+
+		task ("And a pin is added on the diagram product") {
+			CommerceDiagram.addPin(
+				pinNumber = "2",
+				position = "150,100",
+				quantity = "1",
+				selectType = "Linked to a SKU",
+				sku = "MIN55861");
+		}
+
+		task ("And MIN55861 is flagged as 'Discontinued' and a replacement Sku is set") {
+			CommerceJSONProductsAPI._patchCommerceSku(
+				discontinued = "true",
+				productSku = "MIN55861",
+				replacementSku = "MIN93015");
+		}
+
+		task ("And the discontinued sku has 0 quantity available") {
+
+		}
+
+		task ("And product's Allow Back Order is disabled") {
+			CommerceJSONProductsAPI._patchCommerceProductConfiguration(
+				allowBackOrder = "false",
+				productName = "U-Joint");
+		}
+
+		task ("And the buyer user navigates to the diagram product details page") {
+
+		}
+
+		task ("When the user hovers on the discontinued sku's pin") {
+
+		}
+
+		task ("Then ") {
+			
+		}
+
+		task ("When the discontinued sku is attempted to be added to the cart via pin") {
+
+		}
+
+		task ("Then the replacement sku is added to the cart") {
+
+		}
+
+		task ("When the buyer creates a new order") {
+
+		}
+
+		task ("And navigates to the diagram product details page") {
+
+		}
+
+		task ("Then ") {
+
+		}
+
+		task ("When the discontinued sku is attempted to be added to the cart via mapped products table") {
+
+		}
+
+		task ("Then the replacement sku is added to the cart") {
+
+		}
+	}
+
 }

@@ -27,6 +27,14 @@ definition {
 		Click(locator1 = "AppBuilder#SEARCH_BUTTON");
 	}
 
+	macro closeSidePanel {
+		Click(locator1 = "Icon#CLOSE");
+
+		SelectFrame.selectFrameTop();
+
+		SelectFrame.selectFrameNoLoading(locator1 = "CommerceEntry#IFRAME_SIDE_PANEL");
+	}
+
 	macro editMiniCartItemQuantity {
 		Type(
 			key_cartItemSku = ${cartItemSku},

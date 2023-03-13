@@ -1383,6 +1383,10 @@ definition {
 			}
 		}
 
+		if (isSet(error) && ${error} == "true") {
+			Alert.viewErrorMessage(errorMessage = "The qualifier is already linked.");
+		}
+
 		if (isSet(unpublish)) {
 			echo("Do not need to click Publish button");
 		}
@@ -1396,11 +1400,7 @@ definition {
 		}
 
 		if (isSet(shippingOption)) {
-			Click(locator1 = "Icon#CLOSE");
-
-			SelectFrame.selectFrameTop();
-
-			SelectFrame.selectFrameNoLoading(locator1 = "CommerceEntry#IFRAME_SIDE_PANEL");
+			CommerceNavigator.closeSidePanel();
 		}
 	}
 

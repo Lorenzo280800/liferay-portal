@@ -18,7 +18,7 @@ import com.liferay.commerce.constants.CommercePortletKeys;
 import com.liferay.commerce.exception.DuplicateCommerceShipmentItemException;
 import com.liferay.commerce.exception.NoSuchShipmentException;
 import com.liferay.commerce.inventory.model.CommerceInventoryWarehouse;
-import com.liferay.commerce.inventory.service.CommerceInventoryWarehouseService;
+import com.liferay.commerce.inventory.service.CommerceInventoryWarehouseLocalService;
 import com.liferay.commerce.model.CommerceOrderItem;
 import com.liferay.commerce.model.CommerceShipment;
 import com.liferay.commerce.model.CommerceShipmentItem;
@@ -228,9 +228,10 @@ public class EditCommerceShipmentItemMVCActionCommand
 		CommerceShipmentItem commerceShipmentItem = null;
 
 		List<CommerceInventoryWarehouse> commerceInventoryWarehouses =
-			_commerceInventoryWarehouseService.getCommerceInventoryWarehouses(
-				commerceOrderItem.getCompanyId(),
-				commerceOrderItem.getGroupId(), true);
+			_commerceInventoryWarehouseLocalService.
+				getCommerceInventoryWarehouses(
+					commerceOrderItem.getCompanyId(),
+					commerceOrderItem.getGroupId(), true);
 
 		for (CommerceInventoryWarehouse commerceInventoryWarehouse :
 				commerceInventoryWarehouses) {
@@ -292,8 +293,8 @@ public class EditCommerceShipmentItemMVCActionCommand
 		EditCommerceShipmentItemMVCActionCommand.class);
 
 	@Reference
-	private CommerceInventoryWarehouseService
-		_commerceInventoryWarehouseService;
+	private CommerceInventoryWarehouseLocalService
+		_commerceInventoryWarehouseLocalService;
 
 	@Reference
 	private CommerceOrderItemService _commerceOrderItemService;

@@ -18,8 +18,8 @@ import com.liferay.commerce.constants.CommercePortletKeys;
 import com.liferay.commerce.constants.CommerceShipmentFDSNames;
 import com.liferay.commerce.inventory.model.CommerceInventoryWarehouse;
 import com.liferay.commerce.inventory.model.CommerceInventoryWarehouseItem;
-import com.liferay.commerce.inventory.service.CommerceInventoryWarehouseItemService;
-import com.liferay.commerce.inventory.service.CommerceInventoryWarehouseService;
+import com.liferay.commerce.inventory.service.CommerceInventoryWarehouseItemLocalService;
+import com.liferay.commerce.inventory.service.CommerceInventoryWarehouseLocalService;
 import com.liferay.commerce.model.CommerceOrderItem;
 import com.liferay.commerce.model.CommerceShipmentItem;
 import com.liferay.commerce.service.CommerceOrderItemService;
@@ -76,8 +76,9 @@ public class CommerceInventoryWarehouseItemFDSDataProvider
 				commerceShipmentItem.getCommerceOrderItemId());
 
 		List<CommerceInventoryWarehouse> commerceInventoryWarehouses =
-			_commerceInventoryWarehouseService.getCommerceInventoryWarehouses(
-				companyId, commerceOrderItem.getGroupId(), true);
+			_commerceInventoryWarehouseLocalService.
+				getCommerceInventoryWarehouses(
+					companyId, commerceOrderItem.getGroupId(), true);
 
 		for (CommerceInventoryWarehouse commerceInventoryWarehouse :
 				commerceInventoryWarehouses) {
@@ -86,7 +87,7 @@ public class CommerceInventoryWarehouseItemFDSDataProvider
 				commerceInventoryWarehouse.getCommerceInventoryWarehouseId();
 
 			CommerceInventoryWarehouseItem commerceInventoryWarehouseItem =
-				_commerceInventoryWarehouseItemService.
+				_commerceInventoryWarehouseItemLocalService.
 					fetchCommerceInventoryWarehouseItem(
 						commerceInventoryWarehouseId,
 						commerceOrderItem.getSku());
@@ -171,19 +172,19 @@ public class CommerceInventoryWarehouseItemFDSDataProvider
 			_commerceOrderItemService.getCommerceOrderItem(
 				commerceShipmentItem.getCommerceOrderItemId());
 
-		return _commerceInventoryWarehouseItemService.
+		return _commerceInventoryWarehouseItemLocalService.
 			getCommerceInventoryWarehouseItemsCount(
 				_portal.getCompanyId(httpServletRequest),
 				commerceOrderItem.getSku());
 	}
 
 	@Reference
-	private CommerceInventoryWarehouseItemService
-		_commerceInventoryWarehouseItemService;
+	private CommerceInventoryWarehouseItemLocalService
+		_commerceInventoryWarehouseItemLocalService;
 
 	@Reference
-	private CommerceInventoryWarehouseService
-		_commerceInventoryWarehouseService;
+	private CommerceInventoryWarehouseLocalService
+		_commerceInventoryWarehouseLocalService;
 
 	@Reference
 	private CommerceOrderItemService _commerceOrderItemService;

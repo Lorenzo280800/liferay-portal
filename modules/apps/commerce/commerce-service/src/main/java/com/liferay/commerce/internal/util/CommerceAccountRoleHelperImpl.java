@@ -306,7 +306,6 @@ public class CommerceAccountRoleHelperImpl
 
 	private static final String[] _SUPPLIER_CONTROL_PANEL_PORTLET_IDS = {
 		CommercePortletKeys.COMMERCE_ORDER,
-		CommercePricingPortletKeys.COMMERCE_DISCOUNT,
 		CommercePricingPortletKeys.COMMERCE_PRICE_LIST,
 		CommercePricingPortletKeys.COMMERCE_PROMOTION,
 		CPPortletKeys.COMMERCE_CATALOGS, CPPortletKeys.COMMERCE_CHANNELS,

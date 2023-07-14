@@ -162,7 +162,7 @@ export default function CartQuickAdd() {
 					settings: productConfiguration,
 					sku: product.sku,
 					skuId: product.id,
-					skuOptions: product.DDMOptions,
+					skuOptions: product.skuOptions,
 				};
 			}
 			else {

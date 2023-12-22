@@ -240,7 +240,7 @@ definition {
 
 		if (isSet(basePrice)) {
 			Type(
-				key_text = "Base Price",
+				key_text = "Price List Price",
 				locator1 = "TextInput#ANY",
 				value1 = ${basePrice});
 		}
